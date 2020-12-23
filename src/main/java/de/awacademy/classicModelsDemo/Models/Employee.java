@@ -22,7 +22,7 @@ public class Employee {
     @JoinColumn(name = "officeCode", referencedColumnName = "officeCode")
     private Office office;
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "reportsTo", referencedColumnName = "employeeNumber")
     private Employee boss;
 
@@ -97,15 +97,16 @@ public class Employee {
 
     @Override
     public String toString() {
-        return "Employee{" +
-                "employeeNumber=" + employeeNumber +
-                ", lastName='" + lastName + '\'' +
-                ", firstName='" + firstName + '\'' +
-                ", extension='" + extension + '\'' +
-                ", email='" + email + '\'' +
-                ", office=" + office +
-                ", boss=" + boss +
-                ", jobTitle='" + jobTitle + '\'' +
-                '}';
+        return "" +
+//                "Employee{" +
+//                "employeeNumber=" + employeeNumber +
+//                ", lastName='" +
+                lastName + ' ' + firstName
+//                ", extension='" + extension + '\'' +
+//                ", email='" + email + '\'' +
+//                ", office=" + office +
+//                ", boss=" + boss +
+//                ", jobTitle='" + jobTitle + '\'' +
+               ;
     }
 }
