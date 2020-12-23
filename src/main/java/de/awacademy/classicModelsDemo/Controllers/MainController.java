@@ -55,13 +55,33 @@ public class MainController {
         String officeCode = request.getParameter("code");
         Office office = officeService.getOfficeById(officeCode);
 
-        List<Employee> employeeList = employeeService.getAllEmployees();
+        List<Employee> employeeList = employeeService.getAllEmployees2(officeCode);
 
 
         // Instead of letting Hibernate pick the file automatically by returning a string
         // We can create a ModelAndView of the page and return it
         // Same effect, different way of doing it
         ModelAndView model = new ModelAndView("office");
+
+        model.addObject("office", office);
+        model.addObject("employees", employeeList);
+
+        return model;
+    }
+
+    @GetMapping("/allPeople")
+    public ModelAndView allPeoples(){
+
+//        String officeCode = request.getParameter("1");
+        Office office = officeService.getOfficeById("1");
+
+        List<Employee> employeeList = employeeService.getAllEmployees();
+
+
+        // Instead of letting Hibernate pick the file automatically by returning a string
+        // We can create a ModelAndView of the page and return it
+        // Same effect, different way of doing it
+        ModelAndView model = new ModelAndView("AllPeople");
 
         model.addObject("office", office);
         model.addObject("employees", employeeList);

@@ -24,5 +24,26 @@ public class EmployeeService {
         }
     }
 
+    public List<Employee> getAllEmployees2(String officeCode) {
+        List<Employee> employeeList = repository.findAll();
+        ArrayList<Employee> employeesFromOffice = new ArrayList<Employee>();
+        for (int i =0; i<employeeList.size(); i++){
+            if(employeeList.get(i).getOffice().getOfficeCode()==officeCode){
+                employeesFromOffice.add(employeeList.get(i));
+            }
+        }
+        if(employeeList.size() > 0) {
+            return employeesFromOffice;
+        } else {
+            return new ArrayList<Employee>();
+        }
+    }
+
+
+
+
+
+
+
     // TODO More convenience methods for INSERT, UPDATE and DELETE
 }
