@@ -27,23 +27,19 @@
             <th>City</th>
             <th>Phone</th>
             <th>Address</th>
-            <th>Address</th>
-            <th>State</th>
-            <th>Country</th>
-            <th>Postal Code</th>
-            <th>Territory</th>
+
             <th></th>
         </tr>
         <tr th:each="office: ${offices}">
             <td th:text="${office.officeCode}"></td>
             <td th:text="${office.city}"></td>
             <td th:text="${office.phone}"></td>
-            <td th:text="${office.addressLine1}"></td>
-            <td th:text="${office.addressLine2}"></td>
-            <td th:text="${office.state}"></td>
-            <td th:text="${office.country}"></td>
-            <td th:text="${office.postalCode}"></td>
-            <td th:text="${office.territory}"></td>
+            <td th:text="${office.addressLine1 + ' ' +  office.addressLine2 +' '+ office.state + ' '+ office.country +' ' + office.postalCode+' '+office.territory}"></td>
+<!--            <td th:text="${}"></td>-->
+<!--            <td th:text="${office.state}"></td>-->
+<!--            <td th:text="${office.country}"></td>-->
+<!--            <td th:text="${office.postalCode}"></td>-->
+<!--            <td th:text="${office.territory}"></td>-->
 
             <td><a th:href="@{office(code=${office.officeCode})}" class="button is-primary">view</a></td>
         </tr>
